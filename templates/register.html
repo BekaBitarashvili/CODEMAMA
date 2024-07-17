@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <br>
+<br>
 <div class="registration-form">
     <form method="POST" action="">
         {{ form.hidden_tag() }}
@@ -67,6 +68,6 @@
     </form>
 </div>
 <div class="login-link">
-    <p class="white-signin">Already Have An Account? <a href="{{ url_for('login') }}">Sign In</a></p>
+    <p class="white-signin">უკვე გაქვს ანგარიში? -> <a href="{{ url_for('login') }}">ავტორიზაცია</a></p>
 </div>
 {% endblock %}
