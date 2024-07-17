@@ -22,8 +22,8 @@
             <li><a href="#">დახმარება</a></li>
         </ul>
          <ul class="nav-links">
-            <li><a href="#" class="login">ავტორიზაცია</a></li>
-            <li><a href="#" class="register">რეგისტრაცია</a></li>
+            <li><a href="{{ url_for('login') }}" class="login">ავტორიზაცია</a></li>
+            <li><a href="{{ url_for('register') }}" class="register">რეგისტრაცია</a></li>
          </ul>
         <div class="search-bar">
             <input type="text" placeholder="ძიება...">
@@ -31,6 +31,15 @@
         <div class="menu-toggle"><span>&#9776;</span></div>
     </nav>
     <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
         {% block content %}
 
         {% endblock %}
