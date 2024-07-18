@@ -8,42 +8,51 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/CODEMAMA_transparent.png')}}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="static/images/CODEMAMA_transparent.png" alt="Logo Icon" class="logo-icon">
-            CODEMAMA
-        </div>
-        <ul class="nav-links">
-            <li><a href="{{ url_for('index') }}">მთავარი</a></li>
-            <li><a href="#">რეიტინგი</a></li>
-            <li><a href="#">პრობლემები</a></li>
-            <li><a href="#">განათლება</a></li>
-            <li><a href="#">ოლიმპიადა</a></li>
-            <li><a href="#">დახმარება</a></li>
-        </ul>
-         <ul class="nav-links">
-            <li><a href="{{ url_for('login') }}" class="login">ავტორიზაცია</a></li>
-            <li><a href="{{ url_for('register') }}" class="register">რეგისტრაცია</a></li>
-         </ul>
-        <div class="search-bar">
-            <input type="text" placeholder="ძიება...">
-        </div>
-        <div class="menu-toggle"><span>&#9776;</span></div>
-    </nav>
-    <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-            {% endfor %}
-            {% endif %}
-            {% endwith %}
-        {% block content %}
-
-        {% endblock %}
+<nav class="navbar">
+    <div class="logo">
+        <img src="static/images/CODEMAMA_transparent.png" alt="Logo Icon" class="logo-icon">
+        CODEMAMA
     </div>
-    <script src="static/main.js"></script>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('index') }}">მთავარი</a></li>
+        <li><a href="{{ url_for('rating') }}">რეიტინგი</a></li>
+        <li><a href="{{ url_for('problems') }}">პრობლემები</a></li>
+        <li><a href="{{ url_for('education') }}">განათლება</a></li>
+        <li><a href="{{ url_for('olympiad') }}">ოლიმპიადა</a></li>
+        <li><a href="{{ url_for('help') }}">დახმარება</a></li>
+    </ul>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('login') }}" class="login">ავტორიზაცია</a></li>
+        <li><a href="{{ url_for('register') }}" class="register">რეგისტრაცია</a></li>
+    </ul>
+    <div class="search-bar">
+        <input type="text" placeholder="ძიება...">
+    </div>
+    <div class="menu-toggle"><span>&#9776;</span></div>
+</nav>
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+
+    {% endblock %}
+</div>
+<script src="static/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>

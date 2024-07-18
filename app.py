@@ -1,15 +1,40 @@
+from datetime import datetime
 from flask import Flask, request, jsonify, render_template, redirect, url_for, flash
 from forms import RegistrationForm, LoginForm
 
-
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '879asdfnjsdf989jsdffsdsdf546'
+app.config['SECRET_KEY'] = 'a080735da135a614f98ad61116dd233d'
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/rating')
+def rating():
+    return render_template('rating.html')
+
+
+@app.route('/problems')
+def problems():
+    return render_template('problems.html')
+
+
+@app.route('/education')
+def education():
+    return render_template('education.html')
+
+
+@app.route('/olympiad')
+def olympiad():
+    return render_template('olympiad.html')
+
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
 
 
 @app.route('/register', methods=['POST', 'GET'])
